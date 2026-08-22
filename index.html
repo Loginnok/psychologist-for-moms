@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Елена Логинова — психолог для мам</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F3FC;
+            color: #2E2A3A;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3, .hero-title, .blockquote {
+            font-family: 'Playfair Display', serif;
+        }
+
+        h2 {
+            font-size: 2rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            color: #4A2F6E;
+        }
+
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #E9DDF5;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .hero {
+            padding: 3rem 0 4rem 0;
+            background: linear-gradient(135deg, #F5EEFF 0%, #F0E6FA 100%);
+        }
+
+        .hero-content {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            font-weight: 600;
+            color: #5A3E85;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subquote {
+            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #9B6EBF;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 1.5rem auto;
+            color: #4A3C5C;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #8B6CB0;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 14px 36px;
+            border-radius: 48px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+        }
+
+        .btn:hover:not(:disabled) {
+            background-color: #705292;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(112,82,146,0.2);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #8B6CB0;
+            color: #8B6CB0;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover:not(:disabled) {
+            background: #8B6CB0;
+            color: white;
+        }
+
+        .small-note {
+            font-size: 0.85rem;
+            color: #8A73A6;
+            margin-top: 12px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid #EADCF5;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .group-block {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #EADCF5;
+        }
+
+        .group-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .group-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #4A2F6E;
+            margin-bottom: 0.25rem;
+        }
+
+        .group-block .subtitle {
+            font-style: italic;
+            color: #9B6EBF;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .group-block p {
+            margin-bottom: 1rem;
+            color: #3D3452;
+        }
+
+        .group-block .btn {
+            margin-top: 0.5rem;
+        }
+
+        .footer {
+            background: #F3ECFC;
+            text-align: center;
+            padding: 2.5rem 0;
+            color: #6F528F;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin: 20px 0 10px;
+        }
+
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #8B6CB0;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .footer-link:hover {
+            background: #705292;
+            transform: translateY(-2px);
+        }
+
+        .footer-link.telegram { background: #2D8CBE; }
+        .footer-link.telegram:hover { background: #236fa0; }
+        .footer-link.max { background: #6F4E7C; }
+        .footer-link.max:hover { background: #5a3d66; }
+        .footer-link.vk { background: #4C75A3; }
+        .footer-link.vk:hover { background: #3d5e85; }
+        .footer-link.rutube { background: #CC3B4A; }
+        .footer-link.rutube:hover { background: #aa2f3c; }
+        .footer-link.youtube { background: #CC3B4A; }
+        .footer-link.youtube:hover { background: #aa2f3c; }
+        .footer-link.podcast { background: #5A7A8A; }
+        .footer-link.podcast:hover { background: #486470; }
+
+        .footer-legal {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 20px;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .footer-legal a {
+            color: #6F528F;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .footer-legal a:hover {
+            color: #4A2F6E;
+            text-decoration: underline;
+        }
+
+        .footer-small {
+            font-size: 0.75rem;
+            color: #8A73A6;
+            margin-top: 1rem;
+        }
+
+        .checkbox-group {
+            background: #F8F2FF;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border: 1px solid #EADCF5;
+        }
+
+        .checkbox-group .label {
+            font-weight: 600;
+            color: #4A2F6E;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #3D3452;
+        }
+
+        .checkbox-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-top: 2px;
+            accent-color: #8B6CB0;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+        }
+
+        .checkbox-item a {
+            color: #8B6CB0;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .checkbox-item a:hover { 
+            color: #705292;
+        }
+
+        .checkbox-note {
+            font-size: 0.85rem;
+            color: #8A73A6;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 720px) {
+            .container {
+                padding: 0 20px;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-subquote {
+                font-size: 1.2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .section {
+                padding: 2.5rem 0;
+            }
+            .group-block {
+                padding: 1.5rem;
+            }
+            .footer-link {
+                padding: 10px 18px;
+                font-size: 0.85rem;
+            }
+            .checkbox-group {
+                padding: 1rem 1.2rem;
+            }
+            .checkbox-item {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== ГЕРОЙ ========== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-title">Пространство, где можно быть неидеальной мамой.<br>И просто выдохнуть.</div>
+                <div class="hero-subquote">Здесь не учат быть ПРАВИЛЬНОЙ. Здесь помогают вернуть СЕБЯ.</div>
+                <p class="hero-description">Потому что счастливый ребенок — это тот, рядом с которым мама дышит ровно.</p>
+                <a href="#about" class="btn">Узнать обо мне и моих подходах ↓</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- ========== ОБО МНЕ ========== -->
+        <section class="section" id="about">
+            <h2>👋 Обо мне</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                <div style="flex: 1; min-width: 260px;">
+                    <p><strong>Меня зовут Елена Логинова. Я гештальт-терапевт.</strong> И, признаюсь честно, сама — тревожная мама.</p>
+                    <p>Я мама двух подростков, у меня сын и дочь, и я на своей коже прошла всё: от бессонных ночей до желания «просто спрятаться и ни за что не отвечать». Я сама прошла через кризисы, страхи и поиск баланса.</p>
+                    <p>Я знаю, как это — любить ребенка больше жизни и при этом иногда хотеть сбежать. Как чувствовать себя виноватой за усталость. Как бояться, что ты «недостаточно хорошая».</p>
+                    <p>Я не даю советов «как правильно». Я не учу «быть сильной». Я помогаю вернуть себе опору — не через напряжение, а через честность с собой.</p>
+                    <p>В прошлом я — юрист по семейному праву. Мой огромный опыт работы с женщинами, с мамами дает мне право считать, что <strong>материнство — это огромный ресурс для женщины</strong>.</p>
+                    <p>Как только мы, мамы, это принимаем, то мир открывается нам ярко и полноценно. Спокойствие и уверенность мамы — ключ к финансовым, карьерным, личным возможностям. И самое главное — к спокойствию и комфорту в доме, к здоровым, полным любви и взаимопонимания отношениям в семье.</p>
+                </div>
+                <div style="flex: 0 0 200px; text-align: center;">
+                    <img src="D6C6DBFE-F83F-4636-BF14-627FF783BA7C.jpeg"
+alt="Елена Логинова"
+style="width: 100%; max-width: 260px; border-radius: 32px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); object-fit: cover;">
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== С ЧЕМ Я РАБОТАЮ ========== -->
+        <section class="section">
+            <h2>🎯 С чем я работаю</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Если вы узнали себя хотя бы в одном пункте — мы с вами говорим на одном языке:</p>
+            <div class="features-grid">
+                <div class="card"><span class="card-icon">🔸</span> <strong>Тревога за ребенка</strong><br>от «он мало ест» до «он не поступит и жизнь рухнет»</div>
+                <div class="card"><span class="card-icon">🔸</span> <strong>Чувство вины и стыда</strong><br>за срывы, за усталость, за мысли об отдыхе</div>
+                <div class="card"><span class="card-icon">🔸</span> <strong>Потеря себя в материнстве</strong><br>«я забыла, кто я, кроме как мама»</div>
+                <div class="card"><span class="card-icon">🔸</span> <strong>Родительское выгорание</strong><br>когда кажется, что батарейка села навсегда</div>
+                <div class="card"><span class="card-icon">🔸</span> <strong>Возрастные кризисы</strong><br>«ужасные двухлетки», первоклашка в школе, подростковый бунт</div>
+                <div class="card"><span class="card-icon">🔸</span> <strong>Отношения с мужем и родственниками</strong><br>непрошеные советы, нарушение границ, чувство, что вас не слышат</div>
+            </div>
+        </section>
+
+        <!-- ========== ГРУППЫ ========== -->
+        <section class="section">
+            <h2>🗺️ Выберите свой этап</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Материнство — это не прямая линия. Это путь с разными ландшафтами. На каждом этапе свои боли, свои страхи и свои задачи.<br>Я создала <strong>закрытые терапевтические группы</strong> для мам на разных этапах. Это безопасное пространство, где вас поймут без слов.</p>
+
+            <div class="group-block">
+                <h3>👶 Для мам малышей до 1 года</h3>
+                <div class="subtitle">«Я забыла, как меня зовут. Теперь я просто "мама"»</div>
+                <p>Группа для тех, кто устал, потерял себя и чувствует одиночество в декрете. Здесь можно плакать, быть в пижаме и просто выдыхать.</p>
+                <a href="https://jexonfier.github.io/women-who-have-recently-become-mothers" target="_blank" class="btn btn-outline">Перейти на страницу группы «Тихая гавань» →</a>
+            </div>
+
+            <div class="group-block">
+                <h3>🧸 Для мам детей до 3 лет</h3>
+                <div class="subtitle">«Почему я не справляюсь, хотя раньше все справлялись?»</div>
+                <p>Разбираем, куда уходят силы. Учимся говорить с близкими без ссор. Возвращаем себе право на отдых и собственные желания.</p>
+                <a href="https://jexonfier.github.io/women-who-have-recently-become-mothers" target="_blank" class="btn btn-outline">Перейти на страницу группы «Мама, ты не одна» →</a>
+            </div>
+
+            <div class="group-block">
+                <h3>🎒 Для мам младших школьников (7–9 лет)</h3>
+                <div class="subtitle">«Сделай уроки!», «Ты меня не понимаешь!», тревога за оценки.</div>
+                <p>Как пережить адаптацию к школе, снизить тревогу за успеваемость и не превратить дом в филиал школы. Сохранить контакт с ребенком, когда появляется «учебка».</p>
+                <a href="https://jexonfier.github.io/women-who-have-recently-become-mothers" target="_blank" class="btn btn-outline">Перейти на страницу группы «Школа без слез» →</a>
+            </div>
+
+            <div class="group-block">
+                <h3>Для мам подростков</h3>
+                <div class="subtitle">«Отстань», хлопанье дверью, гаджеты и страх потерять контроль.</div>
+                <p>Как отпустить, но не потерять. Как стать маяком, а не надзирателем. Как пережить подростковый кризис и не разрушить отношения.</p>
+                <a href="https://jexonfier.github.io/women-who-have-recently-become-mothers" target="_blank" class="btn btn-outline">Перейти на страницу группы «Подростковый шторм» →</a>
+            </div>
+
+            <div class="group-block">
+                <h3>🌳 Отношения с родителями</h3>
+                <div class="subtitle">«Ты все еще маленькая», чувство вины, нарушение границ.</div>
+                <p>Для взрослых дочерей и сыновей. Как сепарироваться, выстроить границы с мамой и папой, перестать искать их одобрения и начать жить СВОЮ жизнь.</p>
+                <a href="https://jexonfier.github.io/women-who-have-recently-become-mothers" target="_blank" class="btn btn-outline">Перейти на страницу группы «Взрослая дочь» →</a>
+            </div>
+        </section>
+
+        <!-- ========== ЛИЧНАЯ КОНСУЛЬТАЦИЯ С ЧЕКБОКСАМИ ========== -->
+        <section class="section">
+            <h2>💎 Личная консультация</h2>
+            <div style="background: #F8F2FF; border-radius: 32px; padding: 2rem; border-left: 6px solid #9B6EBF;">
+                <p style="font-size: 1.1rem;">Иногда группе нужно время, чтобы спеться. А иногда вам нужно пространство, где есть только вы.</p>
+                <p><strong>Индивидуальная терапия</strong> — это глубокая, бережная работа один на один. Мы идем в вашем темпе. Я не буду «копать» там, куда вы не готовы.</p>
+                <p><strong>С чем приходят на личные сессии:</strong></p>
+                <ul style="margin: 0.5rem 0 1.5rem 1.5rem; list-style-type: disc; color: #3D3452;">
+                    <li>Острые кризисы, послеродовые состояния, тревога</li>
+                    <li>Развод, расставание, поиск опоры</li>
+                    <li>Глубинные запросы, потеря смыслов, депрессивные состояния</li>
+                    <li>Когда вам просто нужно, чтобы вас услышали и не осудили</li>
+                </ul>
+
+                <!-- ЧЕКБОКСЫ -->
+                <div class="checkbox-group">
+                    <span class="label">📋 Переходя по ссылке, вы соглашаетесь на:</span>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="consent1">
+                        <label for="consent1">
+                            <a href="#" target="_blank">Получение рекламных и информационных рассылок</a> и на <a href="#" target="_blank">обработку персональных данных</a>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="consent2">
+                        <label for="consent2">
+                            Вы ознакомлены с <a href="#" target="_blank">Публичной офертой</a>, <a href="#" target="_blank">Политикой конфиденциальности</a>, <a href="#" target="_blank">Положением об обработке персональных данных</a>, <a href="#" target="_blank">Согласием на публикацию и распространение отзывов</a>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-note">* Обязательные поля для согласия</div>
+                </div>
+
+                <!-- КНОПКА С БЛОКИРОВКОЙ -->
+                <a href="https://t.me/loginnok" target="_blank" id="consultBtn" class="btn" style="pointer-events: none; opacity: 0.5;">Записаться на ознакомительную сессию / Узнать подробнее →</a>
+                <p style="font-size: 0.8rem; color: #8A73A6; margin-top: 8px;">Для перехода необходимо отметить оба пункта выше</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ========== ФУТЕР ========== -->
+    <div class="footer">
+        <div class="container">
+            <h3 style="font-family: 'Inter'; font-size: 1.4rem; color: #5A3E85;">📞 Остались вопросы?</h3>
+            <p style="font-size: 1.05rem; margin-bottom: 8px;">Не знаете, какой формат вам подходит? Напишите мне лично. Я отвечу без шаблонов. Как человек человеку.</p>
+
+            <div style="margin: 1.5rem 0 0.5rem;">
+                <a href="https://t.me/loginnok" target="_blank" style="font-size: 1.1rem; font-weight: 600; color: #5A3E85; text-decoration: none;">💬 Telegram: @loginnok</a>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://t.me/trevojnostida" target="_blank" class="footer-link telegram">📱 Мой канал «Психолог для тревожных мам»</a>
+                <a href="https://max.ru/channel_mamabezpsihov" target="_blank" class="footer-link max">🌐 MAX</a>
+                <a href="https://vk.ru/club235810605" target="_blank" class="footer-link vk">💬 ВКонтакте</a>
+                <a href="https://rutube.ru/channel/43822780/" target="_blank" class="footer-link rutube">🎬 Rutube</a>
+                <a href="#" target="_blank" class="footer-link youtube">▶️ YouTube</a>
+                <a href="#" target="_blank" class="footer-link podcast">🎧 Подкаст на Яндекс Музыка</a>
+            </div>
+
+            <p style="margin-top: 24px; font-size: 0.95rem;"><strong>Вы не одна. Правда.</strong> 🌿</p>
+
+            <!-- ЮРИДИЧЕСКИЕ ССЫЛКИ -->
+            <div class="footer-legal">
+                <a href="#" target="_blank">Политика конфиденциальности</a>
+                <a href="#" target="_blank">Положение об обработке персональных данных</a>
+                <a href="#" target="_blank">Согласие на обработку персональных данных</a>
+                <a href="#" target="_blank">Согласие на получение рекламных и информационных рассылок</a>
+                <a href="#" target="_blank">Согласие на публикацию и распространение отзывов</a>
+                <a href="#" target="_blank">Публичная оферта</a>
+            </div>
+
+            <p class="footer-small">© Елена Логинова. Все права защищены.</p>
+        </div>
+    </div>
+
+    <!-- ========== СКРИПТ ДЛЯ ЧЕКБОКСОВ ========== -->
+    <script>
+        const checkbox1 = document.getElementById('consent1');
+        const checkbox2 = document.getElementById('consent2');
+        const btn = document.getElementById('consultBtn');
+
+        function updateButton() {
+            if (checkbox1.checked && checkbox2.checked) {
+                btn.style.pointerEvents = 'auto';
+                btn.style.opacity = '1';
+                btn.style.cursor = 'pointer';
+            } else {
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.5';
+                btn.style.cursor = 'not-allowed';
+            }
+        }
+
+        checkbox1.addEventListener('change', updateButton);
+        checkbox2.addEventListener('change', updateButton);
+
+        updateButton();
+    </script>
+
+</body>
+</html>
